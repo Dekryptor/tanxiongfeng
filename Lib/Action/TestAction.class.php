@@ -11,10 +11,12 @@ class TestAction
     {
         Sys::D('StoreVisitStatic');
 
-        //StoreVisitStaticModel::newAccessNum(1);
+//        StoreVisitStaticModel::newAccessNum(1);
+//        $accessNum=StoreVisitStaticModel::getVisitedNum(1);
 
-        $accessNum=StoreVisitStaticModel::getVisitedNum(1);
+        Sys::D('StoreOrderStatic');
+        $num= StoreOrderStaticModel::getDateOrderNum(1,'20150819');
 
-        var_dump($accessNum);
+        var_dump($num);
     }
 }

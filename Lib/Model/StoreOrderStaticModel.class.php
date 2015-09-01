@@ -48,4 +48,13 @@ class StoreOrderStaticModel
     {
         return date('Ymd',NOW);
     }
+    /*获取指定店铺,指定日期的订单数量*/
+    static function getDateOrderNum($storeId,$date='')
+    {
+        (empty($date))&&($date=date('Ymd',NOW));
+
+        $data=Sys::M(self::$trueTableName)->select('num','store_id='.$storeId.' AND date=\''.$date.'\'',1);
+
+        return $data?$data['num']:0;
+    }
 }
