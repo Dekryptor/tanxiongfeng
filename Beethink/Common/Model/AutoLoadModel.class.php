@@ -517,4 +517,3 @@ $conf=array(
         exit($error_msg);
     }
 }
-?>

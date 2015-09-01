@@ -32,7 +32,7 @@ $CONF=array(
         'port'=>3306,
         'uname'=>'root',                                    //用户名
         'psd'=>'',
-        'dbname'=>'kaibo',                                   //库名
+        'dbname'=>'test',                                   //库名
         'charset'=>'utf8', 
         'type'=>1                                           //连接方式 0=>connect 1=>pconnect
     ),

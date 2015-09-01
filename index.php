@@ -6,7 +6,7 @@ set_time_limit(10);
 define('APP_PATH',dirname($_SERVER['SCRIPT_FILENAME']).'/');
 define('APP_DEBUG',true);
 define('NOW',$_SERVER['REQUEST_TIME']);
-define('THINK_PATH','G:/www/beeAdmin/beethink/');
+define('THINK_PATH','E:/www/beeAdmin/beethink/');
 //实际项目特定配置
 define('BOOK_ORDER',2);    //订座
 define('DELIVER',1);        //外送
