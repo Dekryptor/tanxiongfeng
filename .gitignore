@@ -44,3 +44,5 @@ Temporary Items
 *.xml
 .idea/beeAdmin.iml
 .idea/.name
+Conf/conf.php
+Conf/conf.php
