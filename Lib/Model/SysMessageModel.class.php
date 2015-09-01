@@ -45,4 +45,11 @@ class SysMessageModel
 
         return $data[0]['total'];
     }
+    /*获取最新消息列表 最多显示十条*/
+    static function getMsgList()
+    {
+        $data=Sys::M(self::$trueTableName)->select('id,from_user_id,user_type,content,time','status=0 ORDER BY id DESC',10);
+
+        return $data;
+    }
 }
