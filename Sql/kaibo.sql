@@ -1,9 +1,8 @@
 /*
 SQLyog 企业版 - MySQL GUI v8.14 
-MySQL - 5.6.25 : Database - test
+MySQL - 5.5.8-log : Database - kaibo
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -13,37 +12,9 @@ MySQL - 5.6.25 : Database - test
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`kaibo` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `test`;
-
-/*Table structure for table `app_info` */
-
-DROP TABLE IF EXISTS `app_info`;
-
-CREATE TABLE `app_info` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `package_name` varchar(255) NOT NULL COMMENT '应用包名',
-  `app_name` varchar(255) NOT NULL COMMENT '应用名',
-  `logo` varchar(255) DEFAULT NULL COMMENT '应用的图标URL',
-  `banner` varchar(255) DEFAULT NULL COMMENT '应用的横幅图片URL',
-  `cover` varchar(255) DEFAULT NULL COMMENT '应用的封面图片URL',
-  `description` varchar(255) DEFAULT NULL COMMENT '应用描述',
-  `download` varchar(255) DEFAULT NULL COMMENT '应用下载量',
-  `category` varchar(255) DEFAULT NULL COMMENT '应用分类名',
-  `rating` double(10,2) unsigned DEFAULT NULL COMMENT '应用评分',
-  `review_count` int(11) DEFAULT NULL COMMENT '应用评论数',
-  `package_size` varchar(32) DEFAULT NULL COMMENT '应用的包大小',
-  `url` text NOT NULL COMMENT '应用下载地址',
-  `country` text COMMENT '应用投放国家，形如|US|CN|GB|',
-  `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '应用类型，0-GP，1-APK',
-  `active` tinyint(1) NOT NULL DEFAULT '1' COMMENT '应用系列任务的总开关，0-任务关闭，1-任务开启',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='记录应用信息';
-
-/*Data for the table `app_info` */
-
-insert  into `app_info`(`id`,`package_name`,`app_name`,`logo`,`banner`,`cover`,`description`,`download`,`category`,`rating`,`review_count`,`package_size`,`url`,`country`,`type`,`active`) values (1,'com.shere.easytouch','AnastasiaDate','http://cdn.avazutracking.net/images/201505/052/c3983677f7cca99941b396f2dd745cf7_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'9.1M','http://apx.avazutracking.net/iclk/redirect.php?id=eWeumToXD3xMgTeHKToQgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AU|CA|CH|DK|FI|GB|NO|NZ|SE|US|',0,1),(2,'com.bandainamcogames.outcast','Outcast Odyssey','http://cdn.avazutracking.net/images/201505/052/2e9b4e6f113e39de87e29865efff575e_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'93M','http://apx.avazutracking.net/iclk/redirect.php?id=eT9RmNJXD3xMgT2aeT9QgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|CA|DK|IS|NL|NO|SE|TW|US|ZA|',0,1),(3,'com.ijinshan.kbatterydoctor_en','Battery Doctor (Battery Saver)','http://cdn.avazutracking.net/images/201506/052/33f56db4fa7bea8958cd2901cc76e365_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,NULL,'http://apx.avazutracking.net/iclk/redirect.php?id=eT8HeNoXD3xMgTe5KWeHgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','AC|AD|AF|AG|AI|AL|AM|AO|AQ|AR|AS|AT|AU|AW|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BQ|BR|BS|BT|BV|BW|BY|BZ|CA|CC|CD|CF|CG|CI|CK|CL|CM|CO|CR|CS|CU|CV|CW|CX|CY|CZ|DE|DJ|DK|DM|DO|DZ|EC|EE|EG|ER|ET|EU|FI|FJ|FK|FO|FR|FX|GA|GB|GD|GE|GF|GG|GH|GI|GL|GM|GN|GP|GQ|GR|GT|GU|GW|GY|HK|HM|HN|HR|HT|HU|ID|IE|IL|IM|IN|IO|IQ|IR|IS|IT|JE|JM|JO|JP|KE|KG|KH|KI|KM|KP|KR|KW|KY|KZ|LA|LB|LI|LR|LS|LT|LV|LY|MK|PF|SV|TD|TF|TL',0,1),(4,'air.com.sgn.juicejam.gp','Juice Jam','http://cdn.avazutracking.net/images/201505/052/68f53d3661bcab5cc34decc4f5a2ca9e_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'40M','http://apx.avazutracking.net/iclk/redirect.php?id=mTerK3jMIWuXeW45mNJXD3xMgT4QKUGa&trafficsourceid=15749','|CA|GB|IE|NZ|US|ZA|',0,1),(5,'com.leo.appmaster','LEO Privacy Guard','http://cdn.avazutracking.net/images/201504/052/7d4e378f60ceb549f59346157e76d3b0_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'3.5M','http://apx.avazutracking.net/iclk/redirect.php?id=eTonKU9XD3xMgTeReUbngTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|ID|IN|IR|PH|TH|VN|',0,1),(6,'com.gameturn.aow','Vikings - Age of Warlords','http://cdn.avazutracking.net/images/201507/052/aec671a9d3c0a26ce79a6196b60bbfc5_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'48M','http://apx.avazutracking.net/iclk/redirect.php?id=eWeuKT4XD3xMgTeHKTGHgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AT|BG|BR|BY|CZ|HR|HU|ID|IE|IL|LT|MY|NO|PH|PL|RO|RS|SA|SI|SK|TH|TR|UA|',0,1),(7,'com.snailgameusa.tp','Taichi Panda','http://cdn.avazutracking.net/images/201503/052/be9bcd15288022f4985f00cef67e4778_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'42M','http://apx.avazutracking.net/iclk/redirect.php?id=eTo0KUoXD3xMgTeRmTe0gTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AT|AU|CA|CH|DE|DK|FR|GB|NO|NZ|SE|US|',0,1),(8,'com.igg.android.marbleheroes','Marble Heroes','http://cdn.avazutracking.net/images/201507/052/456f3bb7f3fa583debe6406caf6011ec_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'41M','http://apx.avazutracking.net/iclk/redirect.php?id=eW2QmTjXD3xMgTeQKW2rgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AU|CH|DK|GB|NL|NO|NZ|SE|SG|US|',0,1),(9,'com.ne.hdv','HD Video Downloader','http://cdn.avazutracking.net/images/201506/052/aacf92a73b8a357b22e95150d441fa9f_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'1.4M','http://apx.avazutracking.net/iclk/redirect.php?id=eW4neN2XD3xMgTeueUoagTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AU|CA|GB|IE|NZ|US|',0,1),(10,'net.ym.overseas.intl.cashme','CashMe Rewards','http://cdn.avazutracking.net/images/201506/052/5e6b312da1b89fea39bc86d1b52e0659_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'6.7M','http://apx.avazutracking.net/iclk/redirect.php?id=eUbnmTeXD3xMgTGUeUergTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|ID|MY|SG|TW|',0,1),(11,'com.mediocre.smashhit','Smash Hit','http://cdn.avazutracking.net/images/201506/052/7a3b467285e69cbad94d89b75d0d7803_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'49M','http://apx.avazutracking.net/iclk/redirect.php?id=eUb5KUJXD3xMgTGUeW4agTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AU|FI|GB|IE|NL|NO|NZ|SE|',0,1),(12,'com.wego.android','Wego Flights & Hotels','http://cdn.avazutracking.net/images/201503/052/1195e5d03dac5f652dc89fd31b4aa29a_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'9.0M','http://apx.avazutracking.net/iclk/redirect.php?id=eWoReTGXD3xMgTGReU2agTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|SA|SG|',0,1),(13,'com.wagawin.android2','Wagawin','http://cdn.avazutracking.net/images/201505/052/10991bff321b808263cb829743f427d9_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'28M','http://apx.avazutracking.net/iclk/redirect.php?id=eTouKU2XD3xMgTeRKWe5gTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AT|CH|DE|',0,1),(14,'com.takatap.rewards','Takatap','http://cdn.avazutracking.net/images/201505/052/2e4e2dd2c76a01cba682aee8a61f1dd1_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,NULL,'http://apx.avazutracking.net/iclk/redirect.php?id=eT90KNoXD3xMgT2aKW8ngTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AC|AD|AE|AF|AG|AI|AL|AM|AN|AO|AQ|AS|AU|AW|AX|AZ|BA|BB|BD|BG|BH|BI|BL|BM|BN|BR|BS|BT|BV|BW|BZ|CA|CC|CD|CG|CI|CK|CM|CS|CV|CX|CY|CZ|DK|DM|DZ|EE|EG|EH|ER|ET|FI|FJ|FK|FM|FO|GB|GD|GE|GG|GH|GI|GL|GM|GN|GR|GS|GU|GW|GY|HM|HR|HU|ID|IE|IL|IM|IN|IO|IQ|IR|IS|JE|JM|JO|JP|KE|KH|KI|KM|KN|KP|KR|KW|KY|LA|LB|LC|LK|LR|LS|LT|LV|LY|MA|MD|ME|MF|MH|MK|MM|MN|MO|MP|MR|MS|MT|MU|MV|MW|MY|MZ|NA|NF|NG|NL|NO|NP|NR|UNKNOWN_CTR|',0,1),(15,'com.UCMobile.intl','UC Browser - Surf it Fast','http://cdn.avazutracking.net/images/201501/052/861437daf1d89be46814b0770c0daa5d_100x100.png',NULL,NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,NULL,'http://apx.avazutracking.net/iclk/redirect.php?id=eToQeWJXD3xMgTeRKWJHgTuwD3jnKT8umG-0N-0N&trafficsourceid=15749','|AR|BO|BR|BY|CO|DZ|EG|GH|GT|KR|KW|KZ|LK|MX|NG|NP|OM|QA|SG|SV|TH|TR|UZ|ZA|',0,1),(16,'com.abtnprojects.ambatana','Ambatana: Sell & Buy Stuff','http://cdn.castplatform.com/images/cba5bffb-1545-4dc6-8e23-d97c078c50f1.jpg','http://cdn.castplatform.com/images/bccd1673-6aae-4ee7-a279-f883306e8969.jpg',NULL,'Download and run 1 minute.',NULL,NULL,NULL,NULL,'8.5M','http://media.yemonisoni.com/get?t=s&aff_id=26290&packageName=com.lionmobi.powerclean&id=102047&fos=Android&uts=1437020104','|US|',0,1);
+USE `kaibo`;
 
 /*Table structure for table `tbl_admin_login_log` */
 
@@ -56,27 +27,27 @@ CREATE TABLE `tbl_admin_login_log` (
   `action` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '1=>登录 2=>登出',
   `ip` int(5) unsigned NOT NULL DEFAULT '0' COMMENT '登录ip地址',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_admin_login_log` */
+
+insert  into `tbl_admin_login_log`(`id`,`user_id`,`record_time`,`action`,`ip`) values (1,2,1441065032,2,2130706433),(2,2,1441065099,2,2130706433);
 
 /*Table structure for table `tbl_auth_group` */
 
 DROP TABLE IF EXISTS `tbl_auth_group`;
 
 CREATE TABLE `tbl_auth_group` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户组id,自增主键',
-  `module` varchar(20) NOT NULL DEFAULT '' COMMENT '用户组所属模块',
-  `type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '组类型',
-  `title` char(20) NOT NULL DEFAULT '' COMMENT '用户组中文名称',
-  `description` varchar(80) NOT NULL DEFAULT '' COMMENT '描述信息',
-  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '用户组状态：为1正常，为0禁用,-1为删除',
-  `rules` varchar(500) NOT NULL DEFAULT '' COMMENT '用户组拥有的规则id，多个规则 , 隔开',
-  `g_rules` varchar(120) NOT NULL DEFAULT '' COMMENT '对应的全局规则id串',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '组规则',
+  `group_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '成员组id',
+  `rules` varchar(120) NOT NULL DEFAULT '' COMMENT '规则ids     0=>表示拥有所有权限,适用于超级管理员',
+  `g_rules` varchar(120) NOT NULL DEFAULT '' COMMENT '全局规则ids',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_auth_group` */
+
+insert  into `tbl_auth_group`(`id`,`group_id`,`rules`,`g_rules`) values (1,3,'1,2','1,2'),(2,4,'3,4',''),(3,5,'5,6',''),(4,1,'1,2,3,4,5,6','1,2,3,5');
 
 /*Table structure for table `tbl_global_rule` */
 
@@ -88,9 +59,62 @@ CREATE TABLE `tbl_global_rule` (
   `module` varchar(30) NOT NULL COMMENT '对应module 全小写',
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '名称',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_global_rule` */
+
+/*Table structure for table `tbl_group` */
+
+DROP TABLE IF EXISTS `tbl_group`;
+
+CREATE TABLE `tbl_group` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户组id,自增主键',
+  `type` tinyint(2) NOT NULL DEFAULT '0' COMMENT '组类型',
+  `name` char(30) NOT NULL DEFAULT '' COMMENT '组名',
+  `description` varchar(80) NOT NULL DEFAULT '' COMMENT '描述信息',
+  `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '用户组状态：为1正常，为0禁用,-1为删除',
+  `pid` int(4) NOT NULL DEFAULT '0' COMMENT '对应父级id',
+  `time` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '时间戳',
+  `inherit` tinyint(2) unsigned NOT NULL DEFAULT '1' COMMENT '是否继承上级规则 (0=>不继承 1=>继承)',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_group` */
+
+insert  into `tbl_group`(`id`,`type`,`name`,`description`,`status`,`pid`,`time`,`inherit`) values (3,0,'admin','顶级管理部门,有且只有一个',1,0,0,0),(4,0,'haha','',1,3,0,1),(5,0,'bee','',1,4,0,1),(1,0,'kaibo','测试部门',1,3,0,1);
+
+/*Table structure for table `tbl_group_member` */
+
+DROP TABLE IF EXISTS `tbl_group_member`;
+
+CREATE TABLE `tbl_group_member` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '群组成员管理  一个成员只属于一个部门',
+  `group_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '群组id',
+  `mem_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '成员id',
+  `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '可用状态',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_group_member` */
+
+insert  into `tbl_group_member`(`id`,`group_id`,`mem_id`,`status`) values (1,1,2,1);
+
+/*Table structure for table `tbl_image` */
+
+DROP TABLE IF EXISTS `tbl_image`;
+
+CREATE TABLE `tbl_image` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '图片管理',
+  `url` varchar(200) NOT NULL COMMENT '图片地址',
+  `w` float unsigned NOT NULL DEFAULT '0' COMMENT '宽',
+  `h` float unsigned NOT NULL DEFAULT '0' COMMENT '高',
+  `hash` char(32) NOT NULL DEFAULT '' COMMENT 'hash值',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_image` */
+
+insert  into `tbl_image`(`id`,`url`,`w`,`h`,`hash`) values (1,'http://www.baidu.com',200,400,'lfkajslfkjalskjglkajsglkjl'),(2,'http://www.youku.com',400,200,'sladkjflaskglasdjlf');
 
 /*Table structure for table `tbl_login_fail_log` */
 
@@ -99,14 +123,14 @@ DROP TABLE IF EXISTS `tbl_login_fail_log`;
 CREATE TABLE `tbl_login_fail_log` (
   `id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '账号登录是败日志记录',
   `ip` int(4) unsigned NOT NULL DEFAULT '0' COMMENT 'ip 长整形',
-  `record_time` int(4) NOT NULL DEFAULT '0' COMMENT '时间戳',
+  `record_time` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '时间戳',
   `username` varchar(50) NOT NULL COMMENT '登录使用的用户名',
   `psd` varchar(32) NOT NULL COMMENT '登录使用的密码,未使用hash加密'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_login_fail_log` */
 
-insert  into `tbl_login_fail_log`(`id`,`ip`,`record_time`,`username`,`psd`) values (0,2130706433,1439529756,'bee','3216464644654'),(0,2130706433,1439530207,'bee','3216464644654'),(0,2130706433,1439530436,'bee','3216464644654');
+insert  into `tbl_login_fail_log`(`id`,`ip`,`record_time`,`username`,`psd`) values (0,2130706433,1439597804,'bee','1231421'),(0,2130706433,1439683483,'daf','asdf'),(0,2130706433,1439683497,'sdfs','sdfs'),(0,2130706433,1439683516,'asdf','sadf'),(0,2130706433,1439683690,'asdf','asdf'),(0,2130706433,1439683720,'asdf','asdf'),(0,2130706433,1439683806,'asdf','asdf'),(0,2130706433,1439683818,'asdf','asdf'),(0,2130706433,1439684692,'asdf','asdf'),(0,2130706433,1439684848,'sda','dasdf'),(0,2130706433,1439685187,'dsaf','asdf'),(0,2130706433,1439686010,'asdasd','asdas'),(0,2130706433,1439686075,'asd','asdasd'),(0,2130706433,1439686584,'asdf','asdf'),(0,2130706433,1439686648,'asdf','asdf'),(0,2130706433,1439686675,'alsdkjf','sdlkfjal'),(0,2130706433,1439686715,'asdfas','asdasd'),(0,2130706433,1439686936,'sadf','asdf'),(0,2130706433,1439686963,'asdf','asdf'),(0,2130706433,1439687071,'asdf','asdf'),(0,2130706433,1439687156,'dsf','asdf'),(0,2130706433,1439687170,'dsff','asdfd'),(0,2130706433,1440199889,'asdasd','asdasd'),(0,2130706433,1440286118,'123','fsdf');
 
 /*Table structure for table `tbl_member` */
 
@@ -145,9 +169,11 @@ CREATE TABLE `tbl_menu` (
   `tip` varchar(255) NOT NULL DEFAULT '' COMMENT '提示',
   `group` varchar(50) DEFAULT '' COMMENT '分组',
   `is_dev` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否仅开发者模式可见',
-  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态',
-  `module` varchar(30) NOT NULL COMMENT 'module名  全小写',
-  `action` varchar(30) NOT NULL COMMENT 'action名   全小写',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态 0=>不可用 1=>可用',
+  `class` varchar(30) NOT NULL DEFAULT '' COMMENT '相应class 名,用于样式',
+  `action` varchar(30) NOT NULL COMMENT 'Action名',
+  `module` varchar(30) NOT NULL COMMENT 'Module名',
+  `icon` varchar(30) NOT NULL DEFAULT '' COMMENT '对应icon 如 fa fa-home',
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `status` (`status`)
@@ -155,7 +181,21 @@ CREATE TABLE `tbl_menu` (
 
 /*Data for the table `tbl_menu` */
 
-insert  into `tbl_menu`(`id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev`,`status`,`module`,`action`) values (1,'首页',0,0,'test1.php',0,'','',0,0,'',''),(2,'用户资料',1,0,'test2.php',0,'','',0,0,'',''),(3,'修改用户资料',1,0,'test3.php',0,'','',0,0,'',''),(4,'查看用户列表',1,0,'test4.php',0,'','',0,0,'',''),(5,'test1',1,0,'test5.php',0,'','',0,0,'',''),(6,'test2',2,0,'test6.php',0,'','',0,0,'',''),(7,'test3',3,0,'test7.php',0,'','',0,0,'',''),(8,'test6',4,0,'test8.php',0,'','',0,0,'',''),(9,'test7',5,0,'test9.php',0,'','',0,0,'','');
+insert  into `tbl_menu`(`id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev`,`status`,`class`,`action`,`module`,`icon`) values (1,'首页',0,0,'test1.php',0,'','',0,1,'','','',''),(2,'用户资料',1,0,'test2.php',0,'','',0,1,'','','',''),(3,'修改用户资料',1,0,'test3.php',0,'','',0,1,'','','',''),(4,'查看用户列表',1,0,'test4.php',0,'','',0,1,'','test','user',''),(5,'test1',1,0,'test5.php',0,'','',0,1,'','','',''),(6,'test2',2,0,'test6.php',0,'','',0,1,'','','',''),(7,'test3',3,0,'test7.php',0,'','',0,1,'','','',''),(8,'test6',4,0,'test8.php',0,'','',0,1,'','','',''),(9,'test7',5,0,'test9.php',0,'','',0,1,'','','','');
+
+/*Table structure for table `tbl_menu_group` */
+
+DROP TABLE IF EXISTS `tbl_menu_group`;
+
+CREATE TABLE `tbl_menu_group` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单组管理',
+  `name` varchar(50) NOT NULL COMMENT '组名',
+  `href` varchar(100) NOT NULL COMMENT '链接地址',
+  `order` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '序列',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_menu_group` */
 
 /*Table structure for table `tbl_order_baseinfo` */
 
@@ -163,13 +203,30 @@ DROP TABLE IF EXISTS `tbl_order_baseinfo`;
 
 CREATE TABLE `tbl_order_baseinfo` (
   `order_num` char(20) NOT NULL COMMENT '订单号',
-  `time` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '下单时间',
+  `time` int(6) unsigned NOT NULL DEFAULT '0' COMMENT '下单时间',
   `user_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '订单状态',
-  `store_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '商家id'
+  `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '订单状态(处理状态)',
+  `store_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '商家id',
+  `total_price` float unsigned NOT NULL DEFAULT '0' COMMENT '总价格',
+  `payment_status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '支付状态  0=>未支付 1=>已支付'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_order_baseinfo` */
+
+insert  into `tbl_order_baseinfo`(`order_num`,`time`,`user_id`,`status`,`store_id`,`total_price`,`payment_status`) values ('1108180000008',0,1,0,1,0,0),('1108180000013',1439855226,1,0,1,0,0),('1108190000001',1439985058,1,0,1,0,0),('1108190000001',1439985096,1,0,1,0,0),('1108190000001',1439985177,1,0,1,0,0),('1108190000001',1439985178,1,0,1,0,0),('1108190000001',1439990856,1,0,1,0,0),('1108190000001',1439992782,1,0,1,0,0),('1108190000001',1439992782,1,0,1,0,0),('1108190000001',1439992796,1,0,1,0,0),('1108190000001',1439992830,1,0,1,0,0),('1108190000001',1439992852,1,0,1,0,0),('1108190000001',1439992959,1,0,1,0,0),('1108190000001',1439992987,1,0,1,0,0),('1108190000001',1439993014,1,0,1,0,0),('1108190000001',1439993032,1,0,1,0,0),('1108190000001',1439993488,1,0,1,0,0),('1108190000001',1439993555,1,0,1,0,0),('1108190000001',1439993597,1,0,1,0,0),('1108190000036',1439993644,1,0,1,23.5,0),('1108190000037',1439993708,1,0,1,23.5,0),('1108190000038',1439996359,1,0,1,23.5,0),('1108190000039',1439996659,1,0,1,23.5,0),('1108190000040',1439996683,1,0,1,23.5,0),('1108190000041',1439996721,1,0,1,23.5,0),('1108190000042',1439996754,1,0,1,23.5,0),('1108190000043',1439996763,1,0,1,23.5,0);
+
+/*Table structure for table `tbl_order_date_static` */
+
+DROP TABLE IF EXISTS `tbl_order_date_static`;
+
+CREATE TABLE `tbl_order_date_static` (
+  `date` char(8) NOT NULL COMMENT '记录每天订单数统计',
+  `num` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '订单数量'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_order_date_static` */
+
+insert  into `tbl_order_date_static`(`date`,`num`) values ('20150818',38),('20150819',42),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',30),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9),('20150819',9);
 
 /*Table structure for table `tbl_order_delivery` */
 
@@ -180,12 +237,14 @@ CREATE TABLE `tbl_order_delivery` (
   `order_num` char(20) NOT NULL COMMENT '订单号',
   `username` varchar(40) NOT NULL COMMENT '收货人姓名',
   `tel` char(14) NOT NULL COMMENT '联系方式',
-  `method` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '付款方式',
-  `payment_status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '付款状态',
+  `address` varchar(200) NOT NULL DEFAULT '' COMMENT '详细地址',
+  `zip_code` char(6) NOT NULL DEFAULT '' COMMENT '邮编地址',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_order_delivery` */
+
+insert  into `tbl_order_delivery`(`id`,`order_num`,`username`,`tel`,`address`,`zip_code`) values (1,'1108190000038','bee','18224087281','四川省成都市青羊区',''),(2,'1108190000039','bee','18224087281','四川省成都市青羊区',''),(3,'1108190000040','bee','18224087281','四川省成都市青羊区',''),(4,'1108190000041','bee','18224087281','四川省成都市青羊区',''),(5,'1108190000042','bee','18224087281','四川省成都市青羊区',''),(6,'1108190000043','bee','18224087281','四川省成都市青羊区','');
 
 /*Table structure for table `tbl_order_goods` */
 
@@ -202,9 +261,38 @@ CREATE TABLE `tbl_order_goods` (
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '产品名',
   `order_num` char(20) NOT NULL COMMENT '订单号',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_order_goods` */
+
+insert  into `tbl_order_goods`(`id`,`goods_id`,`goods_img`,`price`,`discount_price`,`count`,`total_price`,`name`,`order_num`) values (1,1,'',0,0,3,0,'','1108190000001'),(2,2,'',0,0,1,0,'','1108190000001'),(3,1,'',0,0,3,0,'','1108190000001'),(4,2,'',0,0,1,0,'','1108190000001'),(5,1,'',0,0,3,0,'','1108190000001'),(6,2,'',0,0,1,0,'','1108190000001'),(7,1,'',0,0,3,0,'','1108190000001'),(8,2,'',0,0,1,0,'','1108190000001'),(9,1,'',0,0,3,0,'','1108190000001'),(10,2,'',0,0,1,0,'','1108190000001'),(11,1,'',0,0,3,0,'','1108190000001'),(12,2,'',0,0,1,0,'','1108190000001'),(13,1,'',0,0,3,0,'','1108190000001'),(14,2,'',0,0,1,0,'','1108190000001'),(15,1,'',0,0,3,0,'','1108190000001'),(16,2,'',0,0,1,0,'','1108190000001'),(17,1,'',0,0,3,0,'','1108190000001'),(18,2,'',0,0,1,0,'','1108190000001'),(19,1,'',0,0,3,0,'','1108190000001'),(20,2,'',0,0,1,0,'','1108190000001'),(21,1,'',0,0,3,0,'','1108190000001'),(22,2,'',0,0,1,0,'','1108190000001'),(23,1,'',0,0,3,0,'','1108190000001'),(24,2,'',0,0,1,0,'','1108190000001'),(25,1,'',0,0,3,0,'','1108190000001'),(26,2,'',0,0,1,0,'','1108190000001'),(27,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000036'),(28,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000036'),(29,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000037'),(30,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000037'),(31,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000038'),(32,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000038'),(33,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000039'),(34,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000039'),(35,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000040'),(36,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000040'),(37,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000041'),(38,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000041'),(39,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000042'),(40,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000042'),(41,1,'http://www.youku.com',4.5,0,3,13.5,'康师傅老谭方便面','1108190000043'),(42,2,'http://www.baidu.com',10,0,1,10,'星巴克咖啡','1108190000043');
+
+/*Table structure for table `tbl_order_payment` */
+
+DROP TABLE IF EXISTS `tbl_order_payment`;
+
+CREATE TABLE `tbl_order_payment` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '订单支付情况 一个订单可以有多条记录',
+  `order_num` char(20) NOT NULL COMMENT '订单号',
+  `type` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '支付方式 1=>现金券 2=>积分 3=>代金券 4=>银联 5=>支付宝 ...',
+  `price` float unsigned NOT NULL DEFAULT '0' COMMENT '支付金额',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_order_payment` */
+
+/*Table structure for table `tbl_order_remark` */
+
+DROP TABLE IF EXISTS `tbl_order_remark`;
+
+CREATE TABLE `tbl_order_remark` (
+  `order_num` char(20) NOT NULL COMMENT '订单号  订单的额外信息',
+  `remarks` varchar(200) NOT NULL DEFAULT '' COMMENT '订单备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_order_remark` */
+
+insert  into `tbl_order_remark`(`order_num`,`remarks`) values ('1108190000043','this is a remark');
 
 /*Table structure for table `tbl_order_status` */
 
@@ -212,13 +300,11 @@ DROP TABLE IF EXISTS `tbl_order_status`;
 
 CREATE TABLE `tbl_order_status` (
   `status` smallint(3) unsigned NOT NULL COMMENT '订单状态参照表',
-  `for_store` varchar(100) CHARACTER SET latin1 NOT NULL COMMENT '对应商家状态描述',
-  `for_user` varchar(100) CHARACTER SET latin1 NOT NULL COMMENT '对应用户描述'
+  `for_store` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '对应商家状态描述',
+  `for_user` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '对应用户描述'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `tbl_order_status` */
-
-insert  into `tbl_order_status`(`status`,`for_store`,`for_user`) values (1,'????',''),(2,'????',''),(3,'????','');
 
 /*Table structure for table `tbl_order_trace` */
 
@@ -235,6 +321,66 @@ CREATE TABLE `tbl_order_trace` (
 
 /*Data for the table `tbl_order_trace` */
 
+/*Table structure for table `tbl_store_goods` */
+
+DROP TABLE IF EXISTS `tbl_store_goods`;
+
+CREATE TABLE `tbl_store_goods` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '商家商品',
+  `store_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '店铺id',
+  `name` varchar(100) NOT NULL COMMENT '商品名',
+  `banner` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '商品banner   对应image.id',
+  `logo` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '商品logo    对应image.id',
+  `price` float unsigned NOT NULL DEFAULT '0' COMMENT '价格',
+  `discount_price` float unsigned NOT NULL DEFAULT '0' COMMENT '折后价',
+  `describe` varchar(100) NOT NULL DEFAULT '0' COMMENT '商品描述',
+  `star` tinyint(1) unsigned NOT NULL DEFAULT '3' COMMENT '星级 1-5 默认为3',
+  `comments` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '评论数',
+  `is_hot` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否为推荐商品    0=>否 1=>是',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否有效 0=>无效 1=>有效',
+  `sales` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '销量',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_store_goods` */
+
+insert  into `tbl_store_goods`(`id`,`store_id`,`name`,`banner`,`logo`,`price`,`discount_price`,`describe`,`star`,`comments`,`is_hot`,`status`,`sales`) values (1,1,'康师傅老谭方便面',1,2,4.5,0,'酸菜系列',3,1,0,1,0),(2,1,'星巴克咖啡',2,1,10,0,'星巴克',3,0,0,1,0);
+
+/*Table structure for table `tbl_store_order_static` */
+
+DROP TABLE IF EXISTS `tbl_store_order_static`;
+
+CREATE TABLE `tbl_store_order_static` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '商家日期订单数量统计',
+  `store_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '商家id',
+  `date` char(8) NOT NULL COMMENT '日期 20150412',
+  `num` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '数量',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_store_order_static` */
+
+insert  into `tbl_store_order_static`(`id`,`store_id`,`date`,`num`) values (1,1,'20150819',8);
+
+/*Table structure for table `tbl_sys_message` */
+
+DROP TABLE IF EXISTS `tbl_sys_message`;
+
+CREATE TABLE `tbl_sys_message` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT COMMENT '系统消息',
+  `from_user_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '消息来自',
+  `user_type` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '用户类型 ( 1=>普通用户 2=>商家)',
+  `receiver_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '接收者id',
+  `receiver_type` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '接收者类型',
+  `time` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '时间戳',
+  `content` varchar(200) NOT NULL DEFAULT '' COMMENT '接收的内容',
+  `img_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '图片',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '查看状态 0=>未查看 1=>已经查看',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_sys_message` */
+
 /*Table structure for table `tbl_ucenter_member` */
 
 DROP TABLE IF EXISTS `tbl_ucenter_member`;
@@ -250,8 +396,9 @@ CREATE TABLE `tbl_ucenter_member` (
   `last_login_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后登录时间',
   `last_login_ip` bigint(20) NOT NULL DEFAULT '0' COMMENT '最后登录IP',
   `update_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
-  `status` tinyint(4) DEFAULT '1' COMMENT '账户状态  0=>无效 1=>有效  ',
-  `login_err_times` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '连续错误登录次数',
+  `status` tinyint(4) DEFAULT '0' COMMENT '用户状态',
+  `group_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '所属组的id',
+  `login_err_times` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '登陆错误次数',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
@@ -260,7 +407,7 @@ CREATE TABLE `tbl_ucenter_member` (
 
 /*Data for the table `tbl_ucenter_member` */
 
-insert  into `tbl_ucenter_member`(`id`,`username`,`password`,`email`,`mobile`,`reg_time`,`reg_ip`,`last_login_time`,`last_login_ip`,`update_time`,`status`,`login_err_times`) values (2,'bee','e10adc3949ba59abbe56e057f20f883e','','',0,0,1439535040,2130706433,0,1,0);
+insert  into `tbl_ucenter_member`(`id`,`username`,`password`,`email`,`mobile`,`reg_time`,`reg_ip`,`last_login_time`,`last_login_ip`,`update_time`,`status`,`group_id`,`login_err_times`) values (2,'bee','e10adc3949ba59abbe56e057f20f883e','','',0,0,1441065135,2130706433,0,1,0,0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
