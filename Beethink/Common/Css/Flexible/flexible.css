@@ -1,0 +1,6 @@
+*{ margin:0px; padding:0px;} body { background:#fff;} .naver{list-style-type:
+none; width:700px; overflow:hidden; margin:100px auto 0;} .naver li{ width:100px;
+                                                              height:50px; overflow:hidden; font-size:16px; text-align:center; cursor:
+    pointer; } .naver li a,.naver li a:hover{display: block;width:100px; height:50px;
+                   line-height: 50px; color:#FFF; text-decoration: none; } .co1{ background:#649e37}
+.co2{ background:#028fbc}

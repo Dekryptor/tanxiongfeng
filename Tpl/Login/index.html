@@ -1,0 +1,214 @@
+</head>
+<body class="signin">
+{{Layout:core.Html5BaseRely.relyFile}}
+
+<section style="width:800px;margin:200px auto;">
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="signin-info">
+            <div>
+                <h1><span>[</span> Bee Admin <span>]</span></h1>
+            </div><!-- logopanel -->
+
+            <div class="mb20"></div>
+
+            <h5><strong>Just Do it !!!</strong></h5>
+            <ul>
+                <li><i class="fa fa-arrow-circle-o-right mr5"></i> 权限管理</li>
+                <li><i class="fa fa-arrow-circle-o-right mr5"></i> 菜单管理</li>
+                <li><i class="fa fa-arrow-circle-o-right mr5"></i> 消息管理</li>
+                <li><i class="fa fa-arrow-circle-o-right mr5"></i> 用户管理</li>
+                <li><i class="fa fa-arrow-circle-o-right mr5"></i> Table数据</li>
+            </ul>
+            <div class="mb20"></div>
+        </div><!-- signin0-info -->
+
+    </div><!-- col-sm-7 -->
+
+    <div class="col-lg-5">
+        <h4 class="nomargin">BEE后台登陆</h4>
+        <p class="mt5 mb20"></p>
+       <form id="form" method="post" class="form-horizontal" action="./Login_verify.jsp">
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <div id="myAlert" style="display: none;" class="">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong class="error"></strong>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <input type="text" name="uname" id="uname"  placeholder="用户名" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <input type="text" name="password" id="password" placeholder="密码" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-5">
+                    <input type="text" name="checkcode" id="checkcode" placeholder="验证码" class="form-control" />
+                </div>
+
+                <div class="col-lg-5">
+                    <img id="checkcode-img" onclick="javascript:    updateCheckcode();" src="./Checkcode_imgCheckcode.png" style="width:120px;height:40px;" />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <button class="form-control btn-primary" type="submit">登录</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div><!-- col-lg-5 -->
+
+</div><!-- row -->
+
+</section>
+
+{{$scripts}}
+{{$liveScripts}}
+
+<script>
+    jQuery(document).ready(function(){
+        var msg=message();
+        msg.init($('#myAlert'));
+
+        // Please do not use the code below
+        // This is for demo purposes only
+        var c = jQuery.cookie('change-skin');
+        if (c && c == 'greyjoy') {
+            jQuery('.btn-success').addClass('btn-orange').removeClass('btn-success');
+        } else if(c && c == 'dodgerblue') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        } else if (c && c == 'katniss') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        }
+
+        $('#form').bootstrapValidator({
+            message:'this value is not valid',
+            feedbackIcons:{
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields:{
+                uname:{
+                    message:'The username is not valid',
+                    validators:{
+                        notEmpty:{
+                            message:'请输入用户名'
+                        },
+                        callback:{
+                            message:'用户名或密码错误'
+                        },
+                    }
+                },
+                password:{
+                    message:'The password is not valid',
+                    validators:{
+                        notEmpty:{
+                            message:'请输入密码'
+                        },
+                        callback:{
+                            message:'用户名或密码错误'
+                        }
+                    }
+                },
+                checkcode:{
+                    message:'The checkcode is required and can\'t be empty',
+                    validators:{
+                        notEmpty:{
+                            message:'验证码为空!'
+                        },
+                        callback:{
+                            message:'验证码错误'
+                        }
+                    }
+                }
+            }
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                var by=$('#form').data('bootstrapValidator');
+
+                var status=result.status.code;
+
+                if(status<10)
+                {
+                    updateCheckcode();
+                    msg.warn(result.status.msg);
+                    return;
+                }
+                else if(status==10)
+                {
+                    msg.success('登录成功!',function (){},false);
+                    window.location.href='./Index_index.jsp';
+                }else
+                {
+                    updateCheckcode();
+
+                    if(status==18)
+                    {
+                        by.updateStatus('checkcode','INVALID','callback');
+                    }
+                    if(status==12)
+                    {
+                        msg.warn(result.status.msg);
+                    }
+                    else
+                    {
+                        msg.wrong(result.status.msg);
+                    }
+                }
+
+            }, 'json');
+        });
+
+    });
+
+    function updateCheckcode()
+    {
+        var src=domain='',
+                path=[],
+                index= 0,
+                img={};
+
+        img=$('#checkcode-img');
+
+        src=$(img).attr('src');
+        index=src.lastIndexOf('?');
+        if(index>0)
+        {
+            path=src.slice(0,index);
+            domain=path+'?time='+(new Date()).getTime();
+        }
+        else
+        {
+            domain=src+'?time'+(new Date()).getTime();
+        }
+
+        $(img).attr('src',domain);
+    }
+</script>
+
+</body>
+</html>

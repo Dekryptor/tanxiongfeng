@@ -1,0 +1,67 @@
+2014/4/2 星期三
+
+将 app.class.php 转换成函数的形式
+将 url.class.php 转换成函数的形式
+优化 model.class.php 
+压缩function.php 到 tmp/data.php 中
+优化缓存管理 $this->display(param);  param默认为false即不缓存 如果需要缓存则设置为非0
+使用md5加密当前url(包含 M+A+"lol"+otherparams)
+
+增加 加载样式
+	$this->display('styles',array('core.base/common','common/test','core.base.test','common.teset'));
+增加 加载脚本
+	$this->display('scripts',array('core.base/common','common/test','abs','abc.aaa'));   //当路径中包含core时 将自动到BeeThink/Common/Css|Js/***.**  下寻找文件并存入 开发目录 /Tmp 下
+实例化Model时,如果在开发目录Lib下 找不到对应文件 将自动 到 BeeThink/Common/Class/ 目录下找对应文件
+
+2014/4/3 星期四
+
+  Model 模型下增加getCacheInfo 方法 可以缓存查询出来的结果集
+
+2014/4/8 星期二
+  1.js/Base/common.js中新增 ajax({url:'',type:'get/post',success:function (msg){},error:function (msg){},dataType:'json');
+  2.修改TableModel中标签 将thead 与 tbody 分开
+  3.修改Base/view.class.php getHeader()方法中定义文档类型定义为
+	<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 4.01//EN" "http://www.w3.org/ TR/html4/strict.dtd">
+  4.BeeThink/Common/Css/ 下新增base.css 
+  5.js/Base/common.js中新增 
+	  1.stopPropagation(e); 阻止默认冒泡事件
+	  2.去掉首尾空格
+  6.替换BeeThink/Common/Css/common.css 为 base.css
+
+2014/4/16 星期三
+   1.修改 BeeThink/Common/class/TableModel.class.php 中 TableModel
+   2.新增 BeeThink/Common/function.php getPager($data) 函数
+2014/4/28 星期一
+   1.修改URL模式为 APACHE urlrewrite模式
+   2.删除urlDispatch()方法
+   3.新增urlRewriteMode()方法
+   
+   
+   
+   
+URL重写内容:
+listen 83
+<VirtualHost 127.0.0.1:83>
+	ServerName www.bee.com
+	ServerAlias think.bee.com
+	DirectoryIndex index.php index.html
+	DocumentRoot "E:\www\Bee\Index"
+	RewriteEngine on
+	RewriteRule ^/([A-Za-z]+)_([A-Za-z]+)\.html$ /index.php/?M=$1&A=$2 [L]
+	RewriteRule ^/([A-Za-z]+)_([A-Za-z]+)\/([A-Za-z0-9_]+)\.html$ /index.php/?M=$1&A=$2&data=$3 [L]
+</VirtualHost>
+<Directory "E:\www\Bee\Index">
+    AllowOverride All
+    Options FollowSymlinks
+    Order Allow,Deny
+    Allow from All
+</Directory>
+
+
+
+
+2014/5/14 星期三
+  1.去掉config文件
+  2.修改CONF()函数
+  3.优化debug模式
+  4.index.php 文件定义 $BEECONF   #BEECONF1

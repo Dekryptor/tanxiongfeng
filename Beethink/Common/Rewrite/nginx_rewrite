@@ -1,0 +1,26 @@
+server {
+        listen       80;
+        server_name  xiangju.zgcom.cn;
+	index index.html index.htm index.php;
+	root /alidata/www/xiangju/wwwroot; 
+
+	 location / {
+            root /alidata/www/xiangju/wwwroot;
+            index  index.html  index.php index.htm;
+             if (!-e $request_filename) {
+		 #rewrite "^/(\w+)/(\w+)/$"  /index.php?name=$1&A=$2 last;
+		 rewrite "^/(\w+)_(\w+)\.\w{3,4}" /index.php?M=$1&A=$2 last;
+		 rewrite "^/(\w+)_(\w+)\.\w{3,4}\?(.*)" /index.php?M=$1&A=$2&$3 last;
+	     }
+ 	}
+	
+	location ~ .*\.(php|php5)?$
+	{
+		#fastcgi_pass  unix:/tmp/php-cgi.sock;
+		fastcgi_pass  127.0.0.1:9000;
+		fastcgi_index index.php;
+		include fastcgi.conf;
+	}
+
+	access_log  /alidata/log/nginx/access/xiangju.log;
+}

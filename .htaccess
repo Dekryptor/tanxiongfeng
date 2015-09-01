@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteCond ${QUERY_STRING} ^(.*)$
+RewriteRule ^([A-Za-z]+)_([A-Za-z]+)\.[A-Za-z]{3,4} index.php?M=$1&A=$2&%1 [L,QSA]
+RewriteRule ^([A-Za-z]+)_([A-Za-z]+)\/([A-Za-z0-9_]+)\.[A-Za-z]{3,4} index.php?M=$1&A=$2&code=$3&%1 [L,QSA]
+
+</IfModule>

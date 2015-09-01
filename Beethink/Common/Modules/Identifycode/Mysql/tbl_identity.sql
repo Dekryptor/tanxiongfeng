@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS `tbl_identify`;
+
+CREATE TABLE `tbl_identify` (
+  `i_id` INT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `i_code` CHAR(6) NOT NULL COMMENT '验证码值',
+  `i_phone_num` CHAR(11) NOT NULL COMMENT '手机号',
+  `i_time` INT(4) UNSIGNED NOT NULL DEFAULT '0' COMMENT '验证码产生时间',
+  UNIQUE KEY `i_id` (`i_id`)
+) ENGINE=INNODB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;

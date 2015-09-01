@@ -1,0 +1,59 @@
+<?php
+/**
+ * 数据返回处理
+ */
+class JsonReturn
+{
+    static function output($code,$data,$ext=null)
+    {
+        $rs=array();
+        if($code==SUCCESS)
+        {
+            if(is_array($ext))
+            {
+                ($err_msg=array_shift($ext))||($err_msg='');
+                $rs=array(
+                    'status'=>array(
+                        'msg'=>$err_msg,
+                        'code'=>SUCCESS
+                    )
+                );
+                $rs=array_merge($rs,$data);
+            }
+            else
+            {
+                $rs=array(
+                    'status'=>array(
+                        'msg'=>$ext,
+                        'code'=>SUCCESS,
+                    ),
+                    'data'=>$data
+                );
+            }
+        }else
+        {
+            if(is_array($ext))
+            {
+                $rs=array(
+                    'code'=>$code,
+                    'msg'=>$data
+                );
+                $rs=array_merge($rs,$ext);
+
+                $rs=array('status'=>$rs);
+            }
+            else
+            {
+                $rs=array(
+                    'status'=>array(
+                        'code'=>$code,
+                        'msg'=>$data,
+                        'request'=>$ext
+                    )
+                );
+
+            }
+        }
+        exit(json_encode($rs));
+    }
+}

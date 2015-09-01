@@ -1,0 +1,39 @@
+/*表格 和 下拉操作栏*/
+.tbl{width:100%;font-size:14px;line-height:30px;font-size:13px;margin-bottom:20px}
+.bgColor1{background-color:#e9ebed}
+.bgColor0{background-color:#fff}
+.thead{background-color:#214785;color:#BBBBBB}
+.thead th{font-weight:800!important}
+.order{color:#FFF;padding-right:15px}
+.up{background:url(/core/Img/Table/arrow_up.gif) no-repeat right center}
+.down{background:url(/core/Img/Table/arrow_down.gif) no-repeat right center}
+.slideDown{position:relative;display:inline;line-height:30px}
+.slideHandle{border:solid 1px #214785;display:inline-block;letter-spacing:0.2em;width:44px!important;padding:0px 8px;text-align:left;font-size:13px;line-height:20px;margin:0px;color:#214785;background:url(/core/Img/Table/arrow-down.gif) no-repeat 50px center}
+.slideList{display:none;font-size:12px;border-bottom:solid 1px #4D6A7E;position:absolute;top:16px;left:0px;width:60px!important;background-color:#FFF;line-height:20px;border:solid 1px #4D6A7E;border-top-style:none}
+.slideList li{text-align:left;padding-left:8px;color:#214785;width:52px;}
+.slideList li:hover{background-color:#DAEBFC}
+.select{background-color:#DAEBFC}
+.r-memo,.checkbox{vertical-align:middle}
+.r-memo{padding-left: 2px;}
+/*搜索框*/
+.navi{background-color:#DAEBFC;height:30px;line-height:30px}
+.searchSlide{display:inline-block;position:relative;width:400px;float:right}
+.shead{text-align:right}
+.searchCon{position:absolute;top:30px;display:none;right:0px;z-index:300;width:400px;border:solid 1px #214785;background-color:#FFF;font-size:13px;}
+.searchCon li{height:30px;line-height:30px}
+.slideTxt{font-size:13px;text-decoration:none;color:#214785;padding-right:10px}
+.sUp{background:url(/core/Img/Table/arrow-up.gif) no-repeat right center}
+.sDown{background:url(/core/Img/Table/arrow-down.gif) no-repeat right center}
+.smemo{display:inline-block;width:100px;text-align:right;color:#214785}
+.text{width:150px}
+.sub{padding:2px 15px}
+.sclose{padding:2px 2px}
+.empty{text-align:center;color:#CCC}
+/**
+ * paging
+ */
+.paging{position:relative;height:30px;clear:both;}
+.pg-link{display:inline-block;padding:0px 15px;line-height:30px;margin-right: 5px;height:30px;color:#000;border:solid 1px #CCC;}
+.pg-link:hover{background-color:#CCC}
+.pg-cur{background-color:#CCC;color:#AAA}
+
